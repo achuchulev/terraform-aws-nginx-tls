@@ -1,8 +1,8 @@
 // Create security group to allow Nomad traffic
-resource "aws_security_group" "nomad" {
-  name        = "atanas-sg"
+resource "aws_security_group" "nginx" {
+  name        = "atanas-nginx-sg"
   description = "Ingress for nginx"
-  vpc_id      = var.aws_vpc_id
+  vpc_id      = var.vpc_id
 
   // Custom ICMP Rule - IPv4 Echo Reply
   ingress {
@@ -35,10 +35,10 @@ resource "aws_security_group" "nomad" {
 
 // Creates AWS EC2 instances for nginx server
 resource "aws_instance" "nginx" {
-  ami                         = var.ami_nomad_server #ami-085925f297f89fce1
-  instance_type               = var.instance_type_server
-  subnet_id                   = var.server_subnet_id
-  vpc_security_group_ids      = [aws_security_group.nomad.id]
+  ami                         = var.ami
+  instance_type               = var.instance_type
+  subnet_id                   = var.subnet_id
+  vpc_security_group_ids      = [aws_security_group.nginx.id]
 
   tags = {
     Name       = "nginx-tls"
