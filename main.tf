@@ -44,5 +44,5 @@ resource "aws_instance" "nginx" {
     Name       = "nginx-tls"
   }
 
-  user_data = templatefile("${path.root}/templates/nginx-config.tpl", { instance_role = "server", nomad_region = var.nomad_region, dc = var.dc, authoritative_region = var.authoritative_region, retry_join = var.retry_join, secure_gossip = var.secure_gossip, domain_name = var.subdomain_name, zone_name = var.cloudflare_zone })
+  user_data = templatefile("${path.root}/templates/nginx-config.tpl", { fqdn = var.fqdn })
 }
