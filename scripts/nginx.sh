@@ -42,7 +42,7 @@ server {
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
-    server_name atanas.web.bg.hashicorp-success.com; # managed by Certbot
+    server_name $1; # managed by Certbot
 
 
 	location / {
@@ -54,21 +54,21 @@ server {
 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/atanas.web.bg.hashicorp-success.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/atanas.web.bg.hashicorp-success.com/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/$1/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/$1/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 }
 server {
-    if ($host = atanas.web.bg.hashicorp-success.com) {
+    if ($host = $1) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
 
 	listen 80 ;
 	listen [::]:80 ;
-    server_name $1; #atanas.web.bg.hashicorp-success.com
+    server_name $1;
     return 404; # managed by Certbot
 }
 EOF
