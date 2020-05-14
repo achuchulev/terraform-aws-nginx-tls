@@ -8,6 +8,6 @@ curl -o /etc/letsencrypt/ssl-dhparams.pem https://raw.githubusercontent.com/achu
 curl -o /etc/letsencrypt/options-ssl-nginx.conf https://raw.githubusercontent.com/achuchulev/terraform-aws-nginx-tls/master/configuration/options-ssl-nginx.conf
 
 # install nginx and run configuration script
-curl -o /root/nginx.sh https://raw.githubusercontent.com/achuchulev/terraform-aws-nginx-tls/master/configuration/nginx.sh
+curl -o /root/nginx.sh https://raw.githubusercontent.com/achuchulev/terraform-aws-nginx-tls/master/scripts/nginx.sh
 chmod +x /root/nginx.sh 
 /root/nginx.sh ${fqdn}
