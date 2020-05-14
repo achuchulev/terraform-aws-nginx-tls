@@ -19,3 +19,5 @@ variable "ami" {
   description = "Ubuntu 18.04 LTS AMI in AWS us-east-1 region"
   default     = "ami-085925f297f89fce1"
 }
+
+variable "fqdn" {}
