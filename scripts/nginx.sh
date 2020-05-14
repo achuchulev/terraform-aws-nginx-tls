@@ -72,4 +72,3 @@ server {
     return 404; # managed by Certbot
 }
 EOF
-© 2020 GitHub, Inc.
