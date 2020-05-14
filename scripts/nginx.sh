@@ -61,8 +61,8 @@ server {
 
 }
 server {
-    if ($host = $1) {
-        return 301 https://$host$request_uri;
+    if (\$host = $1) {
+        return 301 https://\$host\$request_uri;
     } # managed by Certbot
 
 
