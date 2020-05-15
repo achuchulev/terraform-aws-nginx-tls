@@ -72,3 +72,6 @@ server {
     return 404; # managed by Certbot
 }
 EOF
+
+# Start nginx service
+service nginx start
