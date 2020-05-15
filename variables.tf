@@ -20,4 +20,7 @@ variable "ami" {
   default     = "ami-085925f297f89fce1"
 }
 
-variable "fqdn" {}
+variable "fqdn" {
+  description = "Trusted certificate issued by Lets Encrypt for the default domain"
+  default     = "atanas.web.bg.hashicorp-success.com"  
+}
