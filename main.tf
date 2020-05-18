@@ -44,5 +44,5 @@ resource "aws_instance" "nginx" {
     Name       = "nginx-tls"
   }
 
-  user_data = templatefile("${path.root}/templates/nginx-config.tpl", { fqdn = var.fqdn })
+  user_data = templatefile("${path.module}/templates/nginx-config.tpl", { fqdn = var.fqdn })
 }
